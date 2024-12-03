@@ -23,7 +23,7 @@ A LTS (Long-Term Support) release is chosen every 12 weeks from the stream of re
 . Create a ‘jenkins’ user to run this service.
 . Direct console log output to systemd-journald. Run journalctl -u jenkins.service if you are troubleshooting Jenkins.
 . Populate /lib/systemd/system/jenkins.service with configuration parameters for the launch, e.g JENKINS_HOME
-# Set Jenkins to listen on port 8080. Access this port with your browser to start configuration.
+### Set Jenkins to listen on port 8080. Access this port with your browser to start configuration.####
 
 # Step2-Installation of Java
 
@@ -60,16 +60,28 @@ Active: active (running) since Tue 2018-11-13 16:19:01 +03; 4min 57s ago
   common.
 
 YOURPORT=8080
+
 PERM="--permanent"
+
 SERV="$PERM --service=jenkins"
 
 firewall-cmd $PERM --new-service=jenkins
+
 firewall-cmd $SERV --set-short="Jenkins ports"
+
 firewall-cmd $SERV --set-description="Jenkins port exceptions"
+
 firewall-cmd $SERV --add-port=$YOURPORT/tcp
+
 firewall-cmd $PERM --add-service=jenkins
+
 firewall-cmd --zone=public --add-service=http --permanent
+
 firewall-cmd --reload
+
+### also used :
+    - sudo ufw allow 8080
+    - sudo ufw status 
 
 # step4- Post-installation setup wizard
 After downloading, installing and running Jenkins using one of the procedures above (except for installation with Jenkins Operator), the post-installation setup wizard begins.
