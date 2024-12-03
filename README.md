@@ -10,19 +10,19 @@ E-commerce website used on jenkins for CI/Cd with help of git hub &amp; ubuntu t
 Long Term Support release
 A LTS (Long-Term Support) release is chosen every 12 weeks from the stream of regular releases as the stable release for that time period. It can be installed from the debian-stable apt repository
 
-sudo wget -O /usr/share/keyrings/jenkins-keyring.asc \
+- sudo wget -O /usr/share/keyrings/jenkins-keyring.asc \
   https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
-echo "deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc]" \
+  echo "deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc]" \
   https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
   /etc/apt/sources.list.d/jenkins.list > /dev/null
-sudo apt-get update
-sudo apt-get install jenkins
+- sudo apt-get update
+- sudo apt-get install jenkins
 
-The package installation will:
-Setup Jenkins as a daemon launched on start. Run systemctl cat jenkins for more details.
-Create a ‘jenkins’ user to run this service.
-Direct console log output to systemd-journald. Run journalctl -u jenkins.service if you are troubleshooting Jenkins.
-Populate /lib/systemd/system/jenkins.service with configuration parameters for the launch, e.g JENKINS_HOME
+. The package installation will:
+. Setup Jenkins as a daemon launched on start. Run systemctl cat jenkins for more details.
+. Create a ‘jenkins’ user to run this service.
+. Direct console log output to systemd-journald. Run journalctl -u jenkins.service if you are troubleshooting Jenkins.
+. Populate /lib/systemd/system/jenkins.service with configuration parameters for the launch, e.g JENKINS_HOME
 # Set Jenkins to listen on port 8080. Access this port with your browser to start configuration.
 
 # Step2-Installation of Java
@@ -85,57 +85,61 @@ This setup wizard takes you through a few quick "one-off" steps to unlock Jenkin
 
   # Note:
 
--The command: sudo cat /var/lib/jenkins/secrets/initialAdminPassword will print the password at console.
- If you are running Jenkins in Docker using the official jenkins/jenkins image you can use sudo docker exec ${CONTAINER_ID or CONTAINER_NAME} cat 
- /var/jenkins_home/secrets/initialAdminPassword to print the password in the console without having to exec into the container.
+- The command: sudo cat /var/lib/jenkins/secrets/initialAdminPassword will print the password at console.
+  If you are running Jenkins in Docker using the official jenkins/jenkins image you can use sudo docker exec ${CONTAINER_ID or CONTAINER_NAME} cat 
+  /var/jenkins_home/secrets/initialAdminPassword to print the password in the console without having to exec into the container.
 
 3. On the Unlock Jenkins page, paste this password into the Administrator password field and click Continue.
-Note:
-The Jenkins console log indicates the location (in the Jenkins home directory) where this password can also be obtained. This password must be entered in the setup wizard on new Jenkins installations before you can access Jenkins’s main UI. This password also serves as the default administrator account’s password (with username "admin") if you happen to skip the subsequent user-creation step in the setup wizard.
+   Note:
+ . The Jenkins console log indicates the location (in the Jenkins home directory) where this password can also be obtained. This password must be entered in the setup wizard 
+   on new Jenkins installations before you can access Jenkins’s main UI. This password also serves as the default administrator account’s password (with username "admin") if 
+   you happen to skip the subsequent user-creation step in the setup wizard.
 
 # Customizing Jenkins with plugins
-After unlocking Jenkins, the Customize Jenkins page appears. Here you can install any number of useful plugins as part of your initial setup.
-Click one of the two options shown:
-Install suggested plugins - to install the recommended set of plugins, which are based on most common use cases.
-Select plugins to install - to choose which set of plugins to initially install. When you first access the plugin selection page, the suggested plugins are selected by default.
-If you are not sure what plugins you need, choose Install suggested plugins. You can install (or remove) additional Jenkins plugins at a later point in time via the Manage Jenkins > Plugins page in Jenkins.
-The setup wizard shows the progression of Jenkins being configured and your chosen set of Jenkins plugins being installed. This process may take a few minutes.
+. After unlocking Jenkins, the Customize Jenkins page appears. Here you can install any number of useful plugins as part of your initial setup.
+  Click one of the two options shown:
+. Install suggested plugins - to install the recommended set of plugins, which are based on most common use cases.
+. Select plugins to install - to choose which set of plugins to initially install. When you first access the plugin selection page, the suggested plugins are selected by 
+  default.
+. If you are not sure what plugins you need, choose Install suggested plugins. You can install (or remove) additional Jenkins plugins at a later point in time via the Manage 
+   Jenkins > Plugins page in Jenkins.
+. The setup wizard shows the progression of Jenkins being configured and your chosen set of Jenkins plugins being installed. This process may take a few minutes.
 
 # Creating the first administrator user
 Finally, after customizing Jenkins with plugins, Jenkins asks you to create your first administrator user.
 
-1.When the Create First Admin User page appears, specify the details for your administrator user in the respective fields and click Save and Finish.
-2.When the Jenkins is ready page appears, click Start using Jenkins.
-  Notes:
-. This page may indicate Jenkins is almost ready! instead and if so, click Restart.
-. If the page does not automatically refresh after a minute, use your web browser to refresh the page manually.
-3.If required, log in to Jenkins with the credentials of the user you just created and you are ready to start using Jenkins!
+1. When the Create First Admin User page appears, specify the details for your administrator user in the respective fields and click Save and Finish.
+2. When the Jenkins is ready page appears, click Start using Jenkins.
+   Notes:
+.  This page may indicate Jenkins is almost ready! instead and if so, click Restart.
+.  If the page does not automatically refresh after a minute, use your web browser to refresh the page manually.
+3. If required, log in to Jenkins with the credentials of the user you just created and you are ready to start using Jenkins!
 
 ...................................................................................................................
 
 
 # After installing step now you know use your github for CI/CD pipeline process
 
-1.login to github account.
-2.Go to particular repository you want build on Jenkins like :https://github.com/Sureshbeniwa06/E-commerce-.git
-3.Now go to jenkins and build new poject. 
+1. login to github account.
+2. Go to particular repository you want build on Jenkins like :https://github.com/Sureshbeniwa06/E-commerce-.git
+3. Now go to jenkins and build new poject. 
 
 # Process to build project on jenkins
 
-1.Go to dashboard.
-2.Select new item.
-3.Enter a new item name.
-4.select an item type like :Freestyle,maven,pipeline etc.
-5.click on ohk
-6.Go to particular project you want to make then go to description(fill any text like:description of project).
-7.Go to scm(source code management)
--Git 
-  Repositories
-  -Repository URL
+1. Go to dashboard.
+2. Select new item.
+3. Enter a new item name.
+4. Select an item type like :Freestyle,maven,pipeline etc.
+5. Click on ohk
+6. Go to particular project you want to make then go to description(fill any text like:description of project).
+7. Go to scm(source code management)
+   -Git 
+    Repositories
+   -Repository URL
                 https://github.com/Sureshbeniwa06/E-commerce-.git
-  -Credentials:
-   Sureshbeniwa06 /******
-8. save & apply.
+   -Credentials:
+    Sureshbeniwa06 /******
+8. Save & apply.
 
 ##### That is only basic project for ci/cd pipeline on jenkins use of github,ubuntu,jenkins #### 
 
