@@ -1,3 +1,4 @@
+
 # Ubuntu-Github-Jenkins-for-CI-CD-
 E-commerce website used on jenkins for CI/Cd with help of git hub &amp; ubuntu terminal on localhost 8080
 
@@ -163,6 +164,12 @@ Finally, after customizing Jenkins with plugins, Jenkins asks you to create your
 8. Save & apply.
 
 ##### That is only basic project for ci/cd pipeline on jenkins use of github,ubuntu,jenkins #### 
+
+
+
+### url of official website how to install jenkins in ubuntu terminal:
+
+   - https://www.jenkins.io/doc/book/installing/linux/#debianubuntu
 
 
 
