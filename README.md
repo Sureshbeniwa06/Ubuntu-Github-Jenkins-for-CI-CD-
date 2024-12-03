@@ -10,20 +10,22 @@ E-commerce website used on jenkins for CI/Cd with help of git hub &amp; ubuntu t
 Long Term Support release
 A LTS (Long-Term Support) release is chosen every 12 weeks from the stream of regular releases as the stable release for that time period. It can be installed from the debian-stable apt repository
 
-- sudo wget -O /usr/share/keyrings/jenkins-keyring.asc \
-  https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
-  echo "deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc]" \
-  https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
-  /etc/apt/sources.list.d/jenkins.list > /dev/null
-- sudo apt-get update
-- sudo apt-get install jenkins
+### copy link:
+
+     - sudo wget -O /usr/share/keyrings/jenkins-keyring.asc \
+       https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
+       echo "deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc]" \
+        https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
+       /etc/apt/sources.list.d/jenkins.list > /dev/null
+     - sudo apt-get update
+     - sudo apt-get install jenkins
 
 . The package installation will:
 . Setup Jenkins as a daemon launched on start. Run systemctl cat jenkins for more details.
 . Create a ‘jenkins’ user to run this service.
 . Direct console log output to systemd-journald. Run journalctl -u jenkins.service if you are troubleshooting Jenkins.
 . Populate /lib/systemd/system/jenkins.service with configuration parameters for the launch, e.g JENKINS_HOME
-### Set Jenkins to listen on port 8080. Access this port with your browser to start configuration.####
+### Set Jenkins to listen on port 8080. Access this port with your browser to start configuration.
 
 # Step2-Installation of Java
 
@@ -31,6 +33,7 @@ Jenkins requires Java to run, yet not all Linux distributions include Java by de
 There are multiple Java implementations which you can use. OpenJDK is the most popular one at the moment, we will use it in this guide.
 Update the Debian apt repositories, install OpenJDK 17, and check the installation with the commands:
 
+### installjava :
 - sudo apt update
 - sudo apt install fontconfig openjdk-17-jre
 - java -version
@@ -41,16 +44,16 @@ Update the Debian apt repositories, install OpenJDK 17, and check the installati
 # Step4-Start Jenkins
 
 You can enable the Jenkins service to start at boot with the command:
-
-- sudo systemctl enable jenkins
+###
+    - sudo systemctl enable jenkins
   
 You can start the Jenkins service with the command:
-
-- sudo systemctl start jenkins
+###
+    - sudo systemctl start jenkins
 
 You can check the status of the Jenkins service using the command:
-
-- sudo systemctl status jenkins
+###
+    - sudo systemctl status jenkins
 
 If everything has been set up correctly, you should see an output like this:
 
