@@ -13,13 +13,13 @@ A LTS (Long-Term Support) release is chosen every 12 weeks from the stream of re
 
 ### copy link:
 
-     - sudo wget -O /usr/share/keyrings/jenkins-keyring.asc \
+      sudo wget -O /usr/share/keyrings/jenkins-keyring.asc \
        https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
        echo "deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc]" \
         https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
        /etc/apt/sources.list.d/jenkins.list > /dev/null
-     - sudo apt-get update
-     - sudo apt-get install jenkins
+      sudo apt-get update
+      sudo apt-get install jenkins
 
 . The package installation will:
 . Setup Jenkins as a daemon launched on start. Run systemctl cat jenkins for more details.
@@ -36,9 +36,9 @@ Update the Debian apt repositories, install OpenJDK 17, and check the installati
 
 ### installjava :
 
-     -  sudo apt update
-     -  sudo apt install fontconfig openjdk-17-jre
-     -  java -version
+      sudo apt update
+      sudo apt install fontconfig openjdk-17-jre
+      java -version
      
         openjdk version "17.0.8" 2023-07-18
         OpenJDK Runtime Environment (build 17.0.8+7-Debian-1deb12u1)
@@ -48,15 +48,15 @@ Update the Debian apt repositories, install OpenJDK 17, and check the installati
 
 You can enable the Jenkins service to start at boot with the command:
 ###
-    - sudo systemctl enable jenkins
+    sudo systemctl enable jenkins
   
 You can start the Jenkins service with the command:
 ###
-    - sudo systemctl start jenkins
+    sudo systemctl start jenkins
 
 You can check the status of the Jenkins service using the command:
 ###
-    - sudo systemctl status jenkins
+    sudo systemctl status jenkins
 
 If everything has been set up correctly, you should see an output like this:
 
@@ -86,8 +86,8 @@ firewall-cmd --zone=public --add-service=http --permanent
 firewall-cmd --reload
 
 ### also used :
-    - sudo ufw allow 8080
-    - sudo ufw status 
+    sudo ufw allow 8080
+    sudo ufw status 
 
 # step4- Post-installation setup wizard
 After downloading, installing and running Jenkins using one of the procedures above (except for installation with Jenkins Operator), the post-installation setup wizard begins.
