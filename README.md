@@ -160,7 +160,7 @@ Finally, after customizing Jenkins with plugins, Jenkins asks you to create your
    -Repository URL
                 https://github.com/Sureshbeniwa06/E-commerce-.git
    -Credentials:
-    Sureshbeniwa06 /******
+    username/password
 8. Save & apply.
 
 ##### That is only basic project for ci/cd pipeline on jenkins use of github,ubuntu,jenkins #### 
